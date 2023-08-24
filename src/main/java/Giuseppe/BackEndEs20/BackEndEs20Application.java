@@ -11,6 +11,11 @@ import Giuseppe.BackEndEs20.es01.UserData;
 import Giuseppe.BackEndEs20.es02.Libro;
 import Giuseppe.BackEndEs20.es02.Pagina;
 import Giuseppe.BackEndEs20.es02.Sezione;
+import Giuseppe.BackEndEs20.es03.Capitano;
+import Giuseppe.BackEndEs20.es03.Colonnello;
+import Giuseppe.BackEndEs20.es03.Generale;
+import Giuseppe.BackEndEs20.es03.Maggiore;
+import Giuseppe.BackEndEs20.es03.Ufficiali;
 
 @SpringBootApplication
 public class BackEndEs20Application {
@@ -60,5 +65,19 @@ public class BackEndEs20Application {
 		System.out.println("------- ESERCIZIO 2 ---------");
 		libro.stampa();
 		System.out.println("Numero totale di pagine: " + libro.getNumeroPagine());
+
+		// ESERCIZIO 3
+
+		Ufficiali generale = new Generale();
+		Ufficiali colonnello = new Colonnello();
+		Ufficiali maggiore = new Maggiore();
+		Ufficiali capitano = new Capitano();
+
+		capitano.setUfficialeSuperiore(maggiore);
+		maggiore.setUfficialeSuperiore(colonnello);
+		colonnello.setUfficialeSuperiore(generale);
+
+		int importo = 5000;
+		capitano.gestisciRichiesta(importo);
 	}
 }
